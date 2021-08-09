@@ -8,4 +8,4 @@ react+react-router+redux+ES6+webpack+fetch <br/>
 npm install<br/>
 4、运行
 在一个命令终端中运行npm start，再打开另外一个终端运行后端数据 npm run mock<br/>
-![image](https://user-images.githubusercontent.com/49705348/128657414-b11641ec-0ea2-434c-b397-2150802fe8e1.png
+![image](https://github.com/QIAOMAI111/React-shopDemo/blob/master/%E4%BE%9D%E8%B5%96.png）
