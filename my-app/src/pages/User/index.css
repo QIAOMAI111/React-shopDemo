@@ -1,0 +1,90 @@
+.userp{
+  margin: 0;
+}
+.User-title{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: red;
+  height: 52px;
+}
+.User-titlet{
+  color: white;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-left: 8px;
+}
+.User-titley{
+  color: white;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.User-name{
+  margin-left: 8px;
+}
+.User-order-text{
+ 
+  border-bottom: 1px solid grey;
+  padding: 0 10px;
+}
+.User-order-main{
+  margin-top: 10px;
+
+}
+.splice{
+  background-color: rgb(211, 213, 214);
+  height: 6px;
+  margin: 0;
+}
+.User-order-details{
+  display: flex;
+  margin-left: 8px;
+  margin-bottom: 10px;
+}
+.order-img{
+  width:40%;
+  height: 40%;
+}
+.detail-text{
+  width: 35%;
+  margin-left:10px;
+  margin-top:8.5px
+}
+.p{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.order-button{
+  margin-top: 30px;
+  color:#fff;
+  background-color: red;
+}
+.comment-main{
+  padding:0 10px;
+  margin-top: 10px;
+  border-bottom:1px solid black ;
+  margin-bottom: 15px;
+}
+.textarea{
+  width: 100%;
+}
+.oorder-button{
+  margin-right: 8px;
+  color:#fff;
+  background-color: red;
+}
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+  color: #fff;
+  background:red;
+  border-color:red;
+}
+
+.ant-btn:hover, .ant-btn:focus {
+  color: #fff;
+  background:red;
+  border-color:red;
+}
+.user-button{
+  margin-bottom: 10px;
+}

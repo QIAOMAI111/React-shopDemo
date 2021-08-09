@@ -1,0 +1,20 @@
+.cheap-main{
+  width:45%;
+  float:left;
+  margin-left: 4px;
+  margin-bottom: 6px;
+}  
+.cheap-img{
+  width: 100%;
+  height: 126px;
+} 
+.cheap-text{
+  margin-top: 25px;
+  margin-left: 10px;
+  font-size: 16px;
+}
+.cheap-te{
+  text-align: center;
+  margin: 0;
+  font-size: 10px;
+}

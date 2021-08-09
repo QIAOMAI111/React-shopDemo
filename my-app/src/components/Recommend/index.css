@@ -1,0 +1,40 @@
+.recom-main{
+  width: 95%;
+  display: flex;
+  margin-bottom: 30px;
+}
+.recom-text{
+  float: left;
+  margin-left: 10px;
+  font-size:16px;
+}
+.recom-container{
+  flex:1;
+  color: black;
+}
+.recom-img {
+  width: 120px;
+  height: 120px;
+  padding: 7px;
+}
+.recom-title{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.recom-context{
+  font-size: 16px;
+}
+.recom-details{
+  font-size: 14px;
+}
+.recom-number{
+  margin:0;
+}
+.recom-price{
+  margin: 0;
+  color: red;
+}
+.a{
+  color:black
+}

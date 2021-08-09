@@ -1,0 +1,50 @@
+.Detail-title{
+  display: flex;
+  justify-content: space-between;
+  background-color: red;
+  height: 52px;
+
+}
+.back{
+color: white;
+}
+.Detail-d{
+margin-top: 13px;
+font-size: 18px;
+margin-right: 16px;
+color: white;
+}
+.Detail-context{
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+margin-top: 10px;
+}
+.Detail-img{
+  margin-top: 8px;
+  width: 40%;
+  height: 45%;
+}
+.Detail-Context{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+.Detail-p{
+  margin-bottom: 0;
+}
+.Detail-COntext{
+ padding: 10px;
+}
+.Detail-Button{
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 10px;
+  border-bottom: lightgrey solid 10px;
+}
+
+.comment-title{
+  font-size: large;
+  font-weight: bolder;
+  border-bottom: solid 1px black;
+}

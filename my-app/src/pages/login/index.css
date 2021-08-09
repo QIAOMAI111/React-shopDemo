@@ -1,0 +1,51 @@
+.login-main{
+  display: flex;
+  background-color: red;
+  color: #fff;
+  justify-content: space-between;
+  height: 52px;
+}
+.back{
+  margin-top: 12px;
+  font-size: 18px;
+  margin-left: 10px;
+}
+.log{ 
+  margin-top:12px;
+  font-size: 18px;
+  margin-right: 20px;
+}
+.login-blank{
+  padding-top: 40px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid #fff;
+}
+
+.login-context{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.input{
+  border:0;
+  text-align: center;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.Binput{ 
+  margin-top: 20px;
+  margin-right: 20px;
+  background-color: red;
+  color:#fff;
+}
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+  color: #fff;
+  background:red;
+  border-color:red;
+}

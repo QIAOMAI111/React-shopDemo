@@ -1,0 +1,12 @@
+.Banner-main{
+  height: 131px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.Banner-piece{
+  width: 20%;
+  text-align: center;
+  padding: 17px 0;
+  font-size: 18px;
+  margin-bottom: 0;
+}

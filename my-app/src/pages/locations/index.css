@@ -1,0 +1,39 @@
+.loca-main{
+  display: flex;
+  background-color: red;
+  color:#fff;
+  justify-content: space-between;
+  height: 52px;
+}
+.loca-text{
+  margin-top: 12px;
+  font-size: 18px;
+  margin-left: 10px;
+}
+.loca-city{
+  margin-top:12px;
+  font-size: 18px;
+  margin-right: 20px;
+}
+.loca-content{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.loca-matrix{
+  width: 25%;
+  text-align: center;
+  margin:10px 15px 0 0;
+  border:1px solid ;
+}
+
+.loca-choose{
+  text-align: center;
+  padding-top:40px;
+  padding-bottom:40px;
+  font-size: 25px;
+  border-bottom: 1px solid #fff;
+}
+
