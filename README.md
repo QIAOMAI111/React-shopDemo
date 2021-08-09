@@ -1,5 +1,5 @@
 # React-shopDemo
-使用react-create-app脚手架从0构建出一个完整的移动端电商项目（历时三周）
+使用react-create-app脚手架从0构建出一个完整的移动端电商项目（历时三周）<br/>
 <strong>
 1、涉及到的技术栈：
 react+react-router+redux+ES6+webpack+fetch<br/>
