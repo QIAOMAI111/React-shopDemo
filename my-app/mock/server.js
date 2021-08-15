@@ -1,5 +1,6 @@
 var app = require('koa')();
-var router = require('koa-router')();
+var router = require('koa-router')(); //先引入koa-router
+//######Koa-router 是 koa 的一个路由中间件，它可以将请求的URL和方法（如：GET 、 POST 、 PUT 、 DELETE 等） 匹配到对应的响应程序或页面。
 
 // router.get('/', function *(next) {
 //     this.body = 'hello koa !'
@@ -13,7 +14,7 @@ var router = require('koa-router')();
 var homeAdData = require('./home/ad.js')
 router.get('/api/homead', function *(next) {
     console.log('首页 —— 广告（超值特惠）')
-
+    
     this.body = homeAdData
 });
 
@@ -109,6 +110,6 @@ router.get('/api/orderlist/:username', function *(next) {
 })
 
 // 开始服务并生成路由
-app.use(router.routes())
-    .use(router.allowedMethods());
+app.use(router.routes()) //koa-router的中间件：组装匹配好的路由，返回一个合并好的中间件
+    .use(router.allowedMethods()); //koa-router的中间件：获得一个中间件，当发送了不符合的请求时，会返回 `405 Method Not Allowed` 或 `501 Not Implemented`
 app.listen(3001);

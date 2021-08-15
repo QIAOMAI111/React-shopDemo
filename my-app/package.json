@@ -22,7 +22,6 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {},
-  
 	"proxy": "http://localhost:3001",
   "scripts": {
     "start": "set PORT=9000 && react-scripts start",
