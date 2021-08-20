@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 import { DownOutlined , UserOutlined} from '@ant-design/icons'
-import Search from '../Search'
+import SearchHeader from '../Search/subpage/SearchHeader'
 import {Link} from 'react-router-dom'
 
 
@@ -17,7 +17,7 @@ class Header extends React.PureComponent {
           <Link to="/locations" className="header-link">   
              {this.props.location} <DownOutlined />
           </Link> 
-        <Search/>
+        <SearchHeader history={this.props.history}/>
           <div className="header-right">
               <Link to="/login" className="header-link1">
               <UserOutlined style={{ fontSize: '16px' ,color:'white'}}/>

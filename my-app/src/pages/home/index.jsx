@@ -17,7 +17,7 @@ class Home extends React.PureComponent {
   render() {
     return (
       <div>
-        <Header location={this.props.userinfo.location}></Header>
+        <Header location={this.props.userinfo.location} history={this.props.history}></Header>
         <Banner/>     
         <Cheap/>
         <Recommend/>

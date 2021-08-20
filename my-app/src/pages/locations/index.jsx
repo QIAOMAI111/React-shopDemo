@@ -61,7 +61,7 @@ function mapStateToProps(state){
 
 function mapDispathToProps(dispatch){
   return{
-    userInfoActions: bindActionCreators( userInfoActionsFromOtherFile, dispatch )
+    userInfoActions: bindActionCreators( userInfoActionsFromOtherFile, dispatch)
   }
 }
 

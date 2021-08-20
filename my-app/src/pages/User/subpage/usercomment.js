@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button} from 'antd'
-import Rate from 'react-tiny-rate'
+import { Rate } from 'antd';
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as commentActionsFrom from '../../../actions/usercomment'
@@ -33,7 +33,9 @@ class Usercomment extends React.PureComponent{
                       this.state.commentInfo?
                       <div>
                            <p className="userp">评价：{this.state.commentInfo}</p>
-                           <Rate theme="red" size='20px' value={this.state.stars}></Rate> 
+                           <div className="comment-rate">
+                              <Rate value={this.state.stars} disabled/>
+                           </div>
                       </div>:""
                     }
                 </div>               
@@ -47,7 +49,9 @@ class Usercomment extends React.PureComponent{
               this.state.hasComment? 
               <div className="comment-main">
                 <textarea className="textarea" rows="4" ref={this.myRef}></textarea>
-                <Rate theme="red" size='20px' onRate={this.handleRate}></Rate> 
+                <span className="comment-span">
+                    <Rate onChange={this.handleChange}/>
+                </span>
                 <Button size="small" onClick={this.handup} className="oorder-button">提交</Button>
                 <Button size="small" onClick={this.cancel} className="oorder-button" >取消</Button>                                      
              </div> : ""
@@ -55,7 +59,11 @@ class Usercomment extends React.PureComponent{
         </div>
     )
   }
-  handleRate=(stars)=>{
+  componentDidMount() {
+    this.showComment();
+}
+  handleChange= (stars)=>{
+    console.log(stars)
     this.setState({
       stars
     })
@@ -69,12 +77,14 @@ class Usercomment extends React.PureComponent{
           comment:commentValue,
           handleState:1,
           title:this.props.order.title,
+          stars: this.state.stars
         })
       }else if(this.state.handleState===1){
           commentActions.update({
           comment:commentValue,
           handleState:1,
-          title:this.props.order.title
+          title:this.props.order.title,
+          stars: this.state.stars
         })
       }
       this.setState({
@@ -91,6 +101,7 @@ class Usercomment extends React.PureComponent{
           this.setState({
             commentInfo:usercomment[i].comment,
             handleState:1,
+            stars:usercomment[i].stars,
           })
         }
       }

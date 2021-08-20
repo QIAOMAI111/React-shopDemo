@@ -6,8 +6,11 @@
     "@ant-design/icons": "^4.6.2",
     "antd": "^4.16.8",
     "es6-promise": "^4.2.8",
-    "koa": "^1.2.2",
-    "koa-router": "^5.4.0",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-cors": "0.0.16",
+    "koa-router": "^10.0.0",
+    "mockjs": "^1.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
@@ -22,7 +25,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {},
-	"proxy": "http://localhost:3001",
+  "proxy": "http://localhost:3001",
   "scripts": {
     "start": "set PORT=9000 && react-scripts start",
     "build": "react-scripts build",

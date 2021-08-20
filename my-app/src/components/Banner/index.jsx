@@ -3,70 +3,55 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./index.css"
+import {getBannerData} from '../../fetch/banner'
+
 
 //轮播图，采用Slider组件库，设置一些默认的属性，使用组件时要取github上看引用的数量，看热度去选择
 class Banner extends React.Component{ 
+  constructor(props){
+    super(props);
+    this.state={
+      image:[]
+    }
+  }
+
     render(){  
       const settings = {
         dots: true,
+        fade: true,
         infinite: true,
         speed: 500,
-        slidesToshow: 1,
-        slidesToScroll: 1,
-        autoplay:true,
-        autoplaySpeed: 3000,
+        slidesToShow: 1,
+        slidesToScroll: 1
       };
       return(
-        <div>
+        <div className="Banner">
           <Slider {...settings}>
-          <div>
-            <h3 className="Banner-main">
-                <p className="Banner-piece">海贼</p>
-                <p className="Banner-piece">海贼</p>
-                <p className="Banner-piece">海贼</p>
-                <p className="Banner-piece">海贼</p>
-                <p className="Banner-piece">海贼</p>
-                <p className="Banner-piece">海贼</p>
-                <p className="Banner-piece">海贼</p>
-                <p className="Banner-piece">海贼</p>
-                <p className="Banner-piece">海贼</p>
-                <p className="Banner-piece">海贼</p>
-            </h3>
-          </div>
-          <div>
-          <h3 className="Banner-main">
-                <p className="Banner-piece">火影</p>
-                <p className="Banner-piece">火影</p>
-                <p className="Banner-piece">火影</p>
-                <p className="Banner-piece">火影</p>
-                <p className="Banner-piece">火影</p>
-                <p className="Banner-piece">火影</p>
-                <p className="Banner-piece">火影</p>
-                <p className="Banner-piece">火影</p>
-                <p className="Banner-piece">火影</p>
-                <p className="Banner-piece">火影</p>
-            </h3>
-          </div>
-          <div>
-          <h3 className="Banner-main">
-                <p className="Banner-piece">待续</p>
-                <p className="Banner-piece">待续</p>
-                <p className="Banner-piece">待续</p>
-                <p className="Banner-piece">待续</p>
-                <p className="Banner-piece">待续</p>
-                <p className="Banner-piece">待续</p>
-                <p className="Banner-piece">待续</p>
-                <p className="Banner-piece">待续</p>
-                <p className="Banner-piece">待续</p>
-                <p className="Banner-piece">待续</p>                
-            </h3>
-          </div>
+              {
+                this.state.image.map((item,index)=>{
+                  return(   
+                          <div key={index} className="Banner-main">
+                              <img src={item.img} alt="ptoo" className="Banner-img"></img>
+                          </div> 
+                  )
+                })
+            
+              }
           </Slider>
-        </div>       
-     
-         
-    
+        </div>
       );
     }
-    }  
+    componentDidMount(){
+      const result=getBannerData();
+      result.then((res)=>{
+        return res.json()
+      }).then((json)=>{
+        this.setState({
+          image:json
+        })
+      })
+    }
+    }   
+
 export default Banner
+

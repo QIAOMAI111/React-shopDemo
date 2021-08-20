@@ -2,6 +2,7 @@ import React from 'react'
 import './index.css'
 import {getAdData} from '../../fetch/cheap'
 
+
 //1、Home界面中超值特惠部分的构建，首先是采用引入图片的方式去对图片进行布局，涉及到宽度的百分比设置以及flex
 //2、图片采用float设置，图片的宽度百分比都为45%
 //后续采用fetch方法从后端获取数据。
@@ -31,16 +32,16 @@ class Cheap extends React.PureComponent{
     )
   }
 
-  componentDidMount(){
-    const result = getAdData();
-    result.then((res) => {
-      return res.json()
-    }).then(function(json){
-      this.setState({
-        data: json
-      })
-    }.bind(this)
-    )
-  }
+componentDidMount(){
+  const result=getAdData();
+  result.then((res)=>{
+    return res.json()
+  }).then((json)=>{
+    this.setState({
+      data:json
+    })
+  })
+}
+
 }
 export default Cheap;

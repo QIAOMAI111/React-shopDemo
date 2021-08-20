@@ -6,6 +6,7 @@ import Locations from '../pages/locations'
 import Login from '../pages/login'
 import User from '../pages/User'
 import Detail from '../pages/Detail'
+import Search from '../components/Search'
 
 
 class MyRoute extends React.PureComponent{
@@ -17,6 +18,7 @@ class MyRoute extends React.PureComponent{
         <Route path='/login' component={Login}></Route>
         <Route path='/User' component={User}></Route>
         <Route path='/Detail/:id' component={Detail}></Route>
+        <Route path='/search' component={Search}></Route>
         {/*query和state方法 <Route path='/Detail' component={Detail}></Route> */}
       </Router>
     )

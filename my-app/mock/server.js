@@ -1,115 +1,107 @@
-var app = require('koa')();
-var router = require('koa-router')(); //先引入koa-router
-//######Koa-router 是 koa 的一个路由中间件，它可以将请求的URL和方法（如：GET 、 POST 、 PUT 、 DELETE 等） 匹配到对应的响应程序或页面。
+const Koa=require('koa')
+const Router=require('koa-router')
+const bodyparser=require('koa-bodyparser')
+const app=new Koa();
+const router=new Router();
+app.use(bodyparser())
 
-// router.get('/', function *(next) {
-//     this.body = 'hello koa !'
+app.use(router.routes()) 
+    .use(router.allowedMethods()); 
+    //ad.js
+    const cheap = require('./state/cheap')
+    app.use(cheap.routes(), cheap.allowedMethods())
+    //banner.js
+    const banner = require('./state/banner')
+    app.use(banner.routes(), banner.allowedMethods())
+    //home/list.js
+    const homelist = require('./state/homelist')
+    app.use(homelist.routes(), homelist.allowedMethods())
+    //comment.js
+    const comment = require('./state/comment')
+    app.use(comment.routes(), comment.allowedMethods())
+    //info.js
+    const info = require('./state/info')
+    app.use(info.routes(), info.allowedMethods())
+    //order.js
+    const orderlist = require('./state/orderlist')
+    app.use(orderlist.routes(), orderlist.allowedMethods())
+    //search list
+    const searchlist = require('./state/searchlist')
+    app.use(searchlist.routes(),searchlist.allowedMethods())
+    //search Post list
+    const searchpost = require('./state/searchpost')
+    app.use(searchpost.routes(),searchpost.allowedMethods())
+
+
+    let port = 3001
+    app.listen(port,(ctx)=>{
+      console.log('服务启动成功：http://localhost:' + port)
+      router.get('/', async (ctx, next) => {
+          ctx.body = `
+          <h2 style="text-align: center;margin: 10%;">
+              当你看到此页面时表示服务启动成功
+          </h2>
+          `
+      })
+  })
+
+// // 首页 —— 广告（超值特惠）
+// var homeAdData = require('./api/home/ad.js')
+// router.get('/api/homead', async(ctx,next)=>{
+//       ctx.response.body = homeAdData
+//     next()
+// });
+// //首页 ——轮播图
+// var bannerData = require('./api/banner/banner.js')
+// router.get('/api/banner',async(ctx,next)=>{
+//   ctx.response.body =bannerData 
+//   next()
 // });
 
-// router.get('/api', function *(next) {
-//     this.body = 'test data'
+
+// // 首页 —— 推荐列表（猜你喜欢）
+// var homeListData = require('./api/home/list.js')
+// router.get('/api/homelist/:city/:page', async(ctx,next)=>{
+//     ctx.response.body = homeListData
+//     next()
 // });
 
-// 首页 —— 广告（超值特惠）
-var homeAdData = require('./home/ad.js')
-router.get('/api/homead', function *(next) {
-    console.log('首页 —— 广告（超值特惠）')
-    
-    this.body = homeAdData
-});
+// // 搜索结果页 - 搜索结果 - 三个参数
+// var searchListData = require('./api/search/list.js')
+//   router.get('/api/search/:page/:location/:category/:keyword',  async(ctx,next)=>{
+//     ctx.response.body = searchListData
+//     next()
+// })
 
-// 首页 —— 推荐列表（猜你喜欢）
-var homeListData = require('./home/list.js')
-router.get('/api/homelist/:city/:page', function *(next) {
-    console.log('首页 —— 推荐列表（猜你喜欢）')
+// // 详情页 - 商户信息
+// const detailInfo = require('./api/detail/info.js')
+// router.get('/api/detail/info/:id',  async(ctx,next)=>{
+//     console.log('详情页 - 商户信息')
+//     ctx.response.body = detailInfo
+//     next()
+// })
+// // 详情页 - 用户评论
+// const detailComment = require('./api/detail/comment.js')
+// router.get('/api/detail/comment/:page/:id',  async(ctx,next)=>{
+//     console.log('详情页 - 用户点评')
+//     ctx.response.body = detailComment
+//     next()
+// })
 
-    // 参数
-    const params = this.params
-    const paramsCity = params.city
-    const paramsPage = params.page
+// // 订单列表
+// const orderList = require('./api/orderlist/orderList.js')
+// router.get('/api/orderlist/:username', async(ctx,next)=>{
+//     console.log(orderList)
+//     ctx.response.body= orderList
+//     next()
+// })
 
-    console.log('当前城市：' + paramsCity)
-    console.log('当前页数：' + paramsPage)
+// app.use( async ( ctx ) => {
+//    if ( ctx.url === '/api/choose/' && ctx.method === 'POST' ) {
+//     // 当POST请求的时候，中间件koa-bodyparser解析POST表单里的数据，并显示出来
+//     let postData = '567'
+//     ctx.response.body = postData
+//   } 
+// })
 
-    this.body = homeListData
-});
-
-// 搜索结果页 - 搜索结果 - 三个参数
-var searchListData = require('./search/list.js')
-router.get('/api/search/:page/:city/:category/:keyword', function *(next) {
-    console.log('搜索结果页 - 搜索结果')
-
-    // 参数
-    const params = this.params
-    const paramsPage = params.page
-    const paramsCity = params.city
-    const paramsCategory = params.category
-    const paramsKeyword = params.keyword
-
-    console.log('当前页数：' + paramsPage)
-    console.log('当前城市：' + paramsCity)
-    console.log('当前类别：' + paramsCategory)
-    console.log('关键字：' + paramsKeyword)
-
-    this.body = searchListData
-})
-// 搜索结果页 - 搜索结果 - 两个参数
-router.get('/api/search/:page/:city/:category', function *(next) {
-    console.log('搜索结果页 - 搜索结果')
-
-    // 参数
-    const params = this.params
-    const paramsPage = params.page
-    const paramsCity = params.city
-    const paramsCategory = params.category
-
-    console.log('当前页数：' + paramsPage)
-    console.log('当前城市：' + paramsCity)
-    console.log('当前类别：' + paramsCategory)
-
-    this.body = searchListData
-})
-
-// 详情页 - 商户信息
-const detailInfo = require('./detail/info.js')
-router.get('/api/detail/info/:id', function *(next) {
-    console.log('详情页 - 商户信息')
-
-    const params = this.params
-    const id = params.id
-
-    console.log('商户id: ' + id)
-
-    this.body = detailInfo
-})
-// 详情页 - 用户评论
-const detailComment = require('./detail/comment.js')
-router.get('/api/detail/comment/:page/:id', function *(next) {
-    console.log('详情页 - 用户点评')
-
-    const params = this.params
-    const page = params.page
-    const id = params.id
-
-    console.log('商户id: ' + id)
-    console.log('当前页数: ' + page)
-
-    this.body = detailComment
-})
-
-// 订单列表
-const orderList = require('./orderlist/orderList.js')
-router.get('/api/orderlist/:username', function *(next) {
-    console.log('订单列表')
-
-    const params = this.params
-    const username = params.username
-    console.log('用户名：' + username)
-
-    this.body = orderList
-})
-
-// 开始服务并生成路由
-app.use(router.routes()) //koa-router的中间件：组装匹配好的路由，返回一个合并好的中间件
-    .use(router.allowedMethods()); //koa-router的中间件：获得一个中间件，当发送了不符合的请求时，会返回 `405 Method Not Allowed` 或 `501 Not Implemented`
-app.listen(3001);
+// // 开始服务并生成路由

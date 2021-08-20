@@ -1,6 +1,6 @@
 
 export function getAdData(){
-  const result = fetch('/api/homead',{
+  const result = fetch('/api/cheap',{
     credentials: 'include',
     headers:{
       'Accept': 'application/json, text/plain, */*'

@@ -37,7 +37,7 @@ class DetailInfo extends React.PureComponent{
     )
   }
   backToHome = ()=>{
-    window.history.back()
+   this.props.history.push('/')
   }
   componentDidMount(){
     const id = this.props.id

@@ -16,7 +16,7 @@ class Detail extends React.PureComponent{
       //3、const params=this.props.location.state
     return(
           <div>
-          <Info id={params.id}/>
+          <Info id={params.id} history={this.props.history}/>
           <DetailbuyStore id={params.id} history={this.props.history}/>
           {/* 子组件使用history路由时需要对父组件进行定义 */}
           <Comment id={params.id}/>
